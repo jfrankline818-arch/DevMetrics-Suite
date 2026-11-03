@@ -30,28 +30,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Marked JS for Markdown Parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <style>
-        .adsense-container {
-            background-image: radial-gradient(rgba(156, 163, 175, 0.15) 1px, transparent 0);
-            background-size: 12px 12px;
-        }
-        .dark .adsense-container {
-            background-image: radial-gradient(rgba(75, 85, 99, 0.25) 1px, transparent 0);
-        }
-    </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
-
-    <!-- GOOGLE ADSENSE MASTER SCRIPT -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4321543724878495" crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-4321543724878495">
 
     <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-40 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
-                <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('json-tool')">
+                <a href="#json-tool" class="flex items-center space-x-3">
                     <div class="w-10 h-10 rounded-xl bg-dev-600 text-white flex items-center justify-center font-bold text-xl shadow-md">
                         <i class="fa-solid fa-code"></i>
                     </div>
@@ -59,37 +46,37 @@
                         <span class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">DevMetrics</span>
                         <span class="text-xs bg-dev-100 dark:bg-dev-900 text-dev-800 dark:text-dev-200 px-2 py-0.5 rounded-full font-semibold ml-1">Suite</span>
                     </div>
-                </div>
+                </a>
 
                 <!-- Desktop Nav -->
                 <nav class="hidden xl:flex space-x-1">
-                    <button onclick="switchTab('json-tool')" id="nav-json-tool" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-dev-600 dark:text-dev-400 bg-dev-50 dark:bg-gray-700 transition">
+                    <a href="#json-tool" class="px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                         <i class="fa-solid fa-brackets-curly mr-1"></i> JSON
-                    </button>
-                    <button onclick="switchTab('regex-tool')" id="nav-regex-tool" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    </a>
+                    <a href="#regex-tool" class="px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                         <i class="fa-solid fa-asterisk mr-1"></i> Regex
-                    </button>
-                    <button onclick="switchTab('sql-tool')" id="nav-sql-tool" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    </a>
+                    <a href="#sql-tool" class="px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                         <i class="fa-solid fa-database mr-1"></i> SQL
-                    </button>
-                    <button onclick="switchTab('markdown-tool')" id="nav-markdown-tool" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    </a>
+                    <a href="#markdown-tool" class="px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                         <i class="fa-brands fa-markdown mr-1"></i> Markdown
-                    </button>
-                    <button onclick="switchTab('css-tool')" id="nav-css-tool" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    </a>
+                    <a href="#css-tool" class="px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                         <i class="fa-solid fa-layer-group mr-1"></i> CSS Layout
-                    </button>
-                    <button onclick="switchTab('about')" id="nav-about" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    </a>
+                    <a href="#about" class="px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                         <i class="fa-solid fa-circle-info mr-1"></i> About
-                    </button>
-                    <button onclick="switchTab('privacy')" id="nav-privacy" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    </a>
+                    <a href="#privacy" class="px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                         <i class="fa-solid fa-user-shield mr-1"></i> Privacy
-                    </button>
-                    <button onclick="switchTab('terms')" id="nav-terms" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    </a>
+                    <a href="#terms" class="px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                         <i class="fa-solid fa-file-contract mr-1"></i> Terms
-                    </button>
-                    <button onclick="switchTab('contact')" id="nav-contact" class="nav-btn px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    </a>
+                    <a href="#contact" class="px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                         <i class="fa-solid fa-envelope mr-1"></i> Contact
-                    </button>
+                    </a>
                 </nav>
 
                 <!-- Actions -->
@@ -106,44 +93,27 @@
 
         <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden xl:hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 pt-2 pb-3 space-y-1">
-            <button onclick="switchTab('json-tool')" class="w-full text-left px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">JSON Formatter</button>
-            <button onclick="switchTab('regex-tool')" class="w-full text-left px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Regex Tester</button>
-            <button onclick="switchTab('sql-tool')" class="w-full text-left px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">SQL Formatter</button>
-            <button onclick="switchTab('markdown-tool')" class="w-full text-left px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Markdown Editor</button>
-            <button onclick="switchTab('css-tool')" class="w-full text-left px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">CSS Flex/Grid</button>
-            <button onclick="switchTab('about')" class="w-full text-left px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">About Us</button>
-            <button onclick="switchTab('privacy')" class="w-full text-left px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Privacy Policy</button>
-            <button onclick="switchTab('terms')" class="w-full text-left px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Terms of Service</button>
-            <button onclick="switchTab('contact')" class="w-full text-left px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Contact Support</button>
+            <a href="#json-tool" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">JSON Formatter</a>
+            <a href="#regex-tool" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Regex Tester</a>
+            <a href="#sql-tool" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">SQL Formatter</a>
+            <a href="#markdown-tool" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Markdown Editor</a>
+            <a href="#css-tool" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">CSS Flex/Grid</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">About Us</a>
+            <a href="#privacy" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Privacy Policy</a>
+            <a href="#terms" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Terms of Service</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Contact Support</a>
         </div>
     </header>
 
-    <!-- AD UNIT #1: TOP LEADERBOARD BANNER (UNLABELED & BLANK) -->
-    <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 mt-6">
-        <div class="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-4 sm:p-6 text-center adsense-container shadow-sm min-h-[120px] flex items-center justify-center">
-            <div class="w-full flex justify-center items-center min-h-[90px]">
-                <ins class="adsbygoogle"
-                     style="display:block; width:100%; max-width:728px; height:90px;"
-                     data-ad-client="ca-pub-4321543724878495"
-                     data-ad-slot="1234567890"
-                     data-ad-format="horizontal"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </div>
-    </div>
-
     <!-- MAIN CONTAINER -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-6 flex-grow w-full">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8 flex-grow w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
             <!-- MAIN WORKSPACE (8 COLS) -->
-            <div class="lg:col-span-8 space-y-6">
+            <div class="lg:col-span-8 space-y-10">
 
                 <!-- TOOL 1: JSON FORMATTER & VALIDATOR -->
-                <section id="tool-json-tool" class="tab-content bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+                <section id="json-tool" class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
                     <div class="flex items-center justify-between mb-4">
                         <div>
                             <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Live JSON Formatter & Validator</h1>
@@ -171,7 +141,7 @@
                 </section>
 
                 <!-- TOOL 2: REGEX TESTER -->
-                <section id="tool-regex-tool" class="tab-content hidden bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+                <section id="regex-tool" class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
                     <div class="flex items-center justify-between mb-4">
                         <div>
                             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Regular Expression (Regex) Tester</h2>
@@ -220,7 +190,7 @@
                 </section>
 
                 <!-- TOOL 3: SQL FORMATTER -->
-                <section id="tool-sql-tool" class="tab-content hidden bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+                <section id="sql-tool" class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
                     <div class="flex items-center justify-between mb-4">
                         <div>
                             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">SQL Query Formatter</h2>
@@ -242,21 +212,8 @@
                     </div>
                 </section>
 
-                <!-- AD SLOT 2: IN-CONTENT NATIVE BANNER (BLANK CONTAINER, NO TEXT) -->
-                <div class="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-2 text-center min-h-[120px] flex items-center justify-center overflow-hidden adsense-container">
-                    <ins class="adsbygoogle"
-                         style="display:block; width:100%;"
-                         data-ad-client="ca-pub-4321543724878495"
-                         data-ad-slot="1000000002"
-                         data-ad-format="fluid"
-                         data-ad-layout-key="-fb+5w+4e-db+86"></ins>
-                    <script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-
                 <!-- TOOL 4: MARKDOWN PREVIEWER -->
-                <section id="tool-markdown-tool" class="tab-content hidden bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+                <section id="markdown-tool" class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
                     <div class="flex items-center justify-between mb-4">
                         <div>
                             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Live Markdown Editor & Previewer</h2>
@@ -287,7 +244,7 @@ console.log("DevMetrics Suite ready!");
                 </section>
 
                 <!-- TOOL 5: CSS FLEXBOX/GRID PLAYGROUND -->
-                <section id="tool-css-tool" class="tab-content hidden bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+                <section id="css-tool" class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
                     <div class="flex items-center justify-between mb-4">
                         <div>
                             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">CSS Layout Generator</h2>
@@ -335,7 +292,7 @@ console.log("DevMetrics Suite ready!");
                 </section>
 
                 <!-- SECTION: ABOUT US -->
-                <section id="tool-about" class="tab-content hidden space-y-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 md:p-8">
+                <section id="about" class="space-y-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 md:p-8">
                     <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4">
                         <div>
                             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">About DevMetrics & Utility Suite</h2>
@@ -354,20 +311,15 @@ console.log("DevMetrics Suite ready!");
                         <p>
                             Security and confidentiality are foundational to our platform engineering. Every calculation, SQL string formatting, regular expression execution, and JSON validation routine executes 100% locally within your client browser session. Code payloads and proprietary structural configurations are never logged, serialized, or transmitted to any remote servers.
                         </p>
-
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white">Monetization & Advertising Transparency</h3>
-                        <p>
-                            To support continuous feature updates and keep our developer utilities freely accessible, DevMetrics Suite participates in programmatic advertising networks, including Google AdSense. Ad partners place third-party cookies to serve customized advertising content based on user interaction history across web properties. Users maintain complete control over ad customization preferences via standard web browser privacy controls and industry opt-out options.
-                        </p>
                     </div>
                 </section>
 
                 <!-- SECTION: PRIVACY POLICY -->
-                <section id="tool-privacy" class="tab-content hidden space-y-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 md:p-8">
+                <section id="privacy" class="space-y-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 md:p-8">
                     <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4">
                         <div>
                             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Privacy Policy</h2>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">Data usage disclosures, cookies, and AdSense compliance policies.</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Data usage disclosures and client privacy protections.</p>
                         </div>
                         <span class="p-3 bg-dev-50 dark:bg-gray-700 text-dev-600 dark:text-dev-400 rounded-xl"><i class="fa-solid fa-user-shield text-xl"></i></span>
                     </div>
@@ -378,100 +330,77 @@ console.log("DevMetrics Suite ready!");
                             DevMetrics Suite does not gather personally identifiable information (PII) such as full names, email addresses, or phone numbers unless explicitly submitted by users via our Contact Support form. Standard web server logs collect non-identifiable browser attributes including client IP addresses, browser types, timestamp markers, and referring URLs solely for system optimization and security audit analysis.
                         </p>
 
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white">2. Cookies and Third-Party Advertising</h3>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white">2. Browser Local Storage</h3>
                         <p>
-                            Third-party vendor partners, including Google AdSense, utilize cookies (such as the DoubleClick DART cookie) to serve ads based on prior website visits across the Internet. 
-                        </p>
-                        <p>
-                            Users can disable personalized advertising by visiting the <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener" class="text-dev-600 underline">Google Ads Settings page</a>. Alternatively, users may opt out of third-party cookie usage for targeted advertising by navigating to <a href="https://www.aboutads.info" target="_blank" rel="noopener" class="text-dev-600 underline">aboutads.info</a>.
+                            We utilize local browser storage strictly to maintain user settings across sessions, such as theme choice (light/dark mode). We do not deploy invasive cross-site tracking systems.
                         </p>
                     </div>
                 </section>
 
                 <!-- SECTION: TERMS OF SERVICE -->
-                <section id="tool-terms" class="tab-content hidden space-y-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 md:p-8">
+                <section id="terms" class="space-y-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 md:p-8">
                     <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4">
                         <div>
                             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Terms of Service</h2>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">Terms of use, liability disclaimers, and user rights.</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Platform operational guidelines and user terms.</p>
                         </div>
                         <span class="p-3 bg-dev-50 dark:bg-gray-700 text-dev-600 dark:text-dev-400 rounded-xl"><i class="fa-solid fa-file-contract text-xl"></i></span>
                     </div>
 
                     <div class="space-y-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white">1. Agreement to Terms</h3>
-                        <p>
-                            By accessing or using DevMetrics Suite, you confirm your acceptance of these Terms of Service. If you do not agree to all terms outlined herein, you are prohibited from using the utilities.
-                        </p>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white">1. Permitted Use</h3>
+                        <p>Users are granted permission to access and execute DevMetrics tools for software development, debugging, and data processing. Commercial and open-source usage is supported.</p>
 
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white">2. Disclaimer of Warranties & Liability</h3>
-                        <p>
-                            All tools, converters, and script utilities are provided "as is" without warranty of any kind. DevMetrics Suite does not warrant that utility outputs are error-free or suitable for critical production systems without prior verification.
-                        </p>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white">2. Disclaimer of Liability</h3>
+                        <p>Utilities are offered "as is" without implied performance guarantees. Users are responsible for verifying transformed data before implementing in production environments.</p>
                     </div>
                 </section>
 
                 <!-- SECTION: CONTACT SUPPORT -->
-                <section id="tool-contact" class="tab-content hidden space-y-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 md:p-8">
+                <section id="contact" class="space-y-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 md:p-8">
                     <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4">
                         <div>
-                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Contact & Support</h2>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">Reach out for platform feedback, feature requests, or publisher inquiries.</p>
+                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Contact Support</h2>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Get in touch with our engineering team.</p>
                         </div>
                         <span class="p-3 bg-dev-50 dark:bg-gray-700 text-dev-600 dark:text-dev-400 rounded-xl"><i class="fa-solid fa-envelope text-xl"></i></span>
                     </div>
 
-                    <form onsubmit="event.preventDefault(); alert('Thank you for contacting DevMetrics Suite. We have received your message.');" class="space-y-4">
+                    <form onsubmit="event.preventDefault(); alert('Message received! Our support team will get back to you.');" class="space-y-4 max-w-2xl">
                         <div>
-                            <label class="block text-xs font-semibold text-gray-500 uppercase mb-1">Your Name</label>
-                            <input type="text" required placeholder="Jane Doe" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-900 text-sm outline-none">
+                            <label class="block text-xs font-semibold uppercase text-gray-500 mb-1">Your Name</label>
+                            <input type="text" required placeholder="John Developer" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-900 text-sm outline-none focus:ring-2 focus:ring-dev-500">
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-gray-500 uppercase mb-1">Email Address</label>
-                            <input type="email" required placeholder="developer@example.com" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-900 text-sm outline-none">
+                            <label class="block text-xs font-semibold uppercase text-gray-500 mb-1">Email Address</label>
+                            <input type="email" required placeholder="john@devmetrics.io" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-900 text-sm outline-none focus:ring-2 focus:ring-dev-500">
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-gray-500 uppercase mb-1">Message</label>
-                            <textarea rows="4" required placeholder="How can we help you?" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-900 text-sm outline-none"></textarea>
+                            <label class="block text-xs font-semibold uppercase text-gray-500 mb-1">Message</label>
+                            <textarea rows="4" required placeholder="Write your inquiry or feature request..." class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-50 dark:bg-gray-900 text-sm outline-none focus:ring-2 focus:ring-dev-500"></textarea>
                         </div>
-                        <button type="submit" class="px-6 py-3 bg-dev-600 hover:bg-dev-700 text-white font-semibold text-sm rounded-xl transition">Submit Message</button>
+                        <button type="submit" class="px-6 py-3 bg-dev-600 hover:bg-dev-700 text-white rounded-xl text-xs font-semibold transition">Submit Message</button>
                     </form>
                 </section>
 
             </div>
 
-            <!-- SIDEBAR (4 COLS) -->
+            <!-- SIDEBAR AREA (4 COLS) -->
             <aside class="lg:col-span-4 space-y-6">
                 <div class="sticky top-20 space-y-6">
-
-                    <!-- AD SLOT 3: STICKY SIDEBAR BANNER (UNLABELED & BLANK) -->
-                    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-4 text-center adsense-container shadow-sm min-h-[250px] flex items-center justify-center">
-                        <ins class="adsbygoogle"
-                             style="display:block; width:100%; height:250px;"
-                             data-ad-client="ca-pub-4321543724878495"
-                             data-ad-slot="1000000003"
-                             data-ad-format="rectangle"
-                             data-full-width-responsive="true"></ins>
-                        <script>
-                             (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
-                    </div>
-
                     <div class="bg-gradient-to-br from-dev-600 to-dev-800 text-white rounded-2xl p-6 shadow-md">
                         <i class="fa-solid fa-shield-cat text-3xl mb-3 text-dev-200"></i>
-                        <h3 class="text-lg font-bold">100% Client-Side Privacy</h3>
+                        <h3 class="text-lg font-bold">100% Offline & Private</h3>
                         <p class="text-xs text-dev-100 mt-2 leading-relaxed">
-                            Your JSON structures, Regex matches, SQL queries, and Markdown source text are processed entirely locally in your web browser. No code data is ever sent to external servers.
+                            All code formatting, regex evaluations, and layout renders execute entirely inside your local browser instance.
                         </p>
                     </div>
-
                 </div>
             </aside>
-
         </div>
     </main>
 
-    <!-- FOOTER & COMPLIANCE LINKS -->
+    <!-- FOOTER -->
     <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div class="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -480,49 +409,29 @@ console.log("DevMetrics Suite ready!");
                     <span class="font-bold text-gray-900 dark:text-white">DevMetrics Suite</span>
                     <span class="text-xs text-gray-500 dark:text-gray-400">© 2026. All Rights Reserved.</span>
                 </div>
-                <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-gray-500">
-                    <a href="#" onclick="switchTab('about')" class="hover:underline">About Us</a>
-                    <a href="#" onclick="switchTab('privacy')" class="hover:underline">Privacy Policy</a>
-                    <a href="#" onclick="switchTab('terms')" class="hover:underline">Terms of Service</a>
-                    <a href="#" onclick="switchTab('contact')" class="hover:underline">Contact Support</a>
+                <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-gray-600 dark:text-gray-300">
+                    <a href="#about" class="hover:underline">About Us</a>
+                    <span>•</span>
+                    <a href="#privacy" class="hover:underline">Privacy Policy</a>
+                    <span>•</span>
+                    <a href="#terms" class="hover:underline">Terms of Service</a>
+                    <span>•</span>
+                    <a href="#contact" class="hover:underline">Contact Support</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
     <script>
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            document.getElementById('tool-' + tabId).classList.remove('hidden');
-            
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('text-dev-600', 'dark:text-dev-400', 'bg-dev-50', 'dark:bg-gray-700');
-                btn.classList.add('text-gray-600', 'dark:text-gray-300');
-            });
-            const activeBtn = document.getElementById('nav-' + tabId);
-            if(activeBtn) {
-                activeBtn.classList.add('text-dev-600', 'dark:text-dev-400', 'bg-dev-50', 'dark:bg-gray-700');
-                activeBtn.classList.remove('text-gray-600', 'dark:text-gray-300');
-            }
-        }
-
         function toggleDarkMode() {
-            const html = document.documentElement;
-            html.classList.toggle('dark');
+            document.documentElement.classList.toggle('dark');
             const icon = document.getElementById('theme-icon');
-            if (html.classList.contains('dark')) {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            } else {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-            }
+            icon.className = document.documentElement.classList.contains('dark') ? 'fa-solid fa-sun text-lg' : 'fa-solid fa-moon text-lg';
         }
 
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
         function formatJSON(indent) {
@@ -531,13 +440,11 @@ console.log("DevMetrics Suite ready!");
             try {
                 const parsed = JSON.parse(input.value);
                 input.value = JSON.stringify(parsed, null, indent);
-                status.className = "mb-4 p-3 rounded-xl text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300";
-                status.innerText = "Valid JSON payload formatted successfully.";
-                status.classList.remove('hidden');
+                status.className = "mb-4 p-3 rounded-xl text-xs font-semibold bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 block";
+                status.innerText = "Valid JSON syntax formatted successfully!";
             } catch (e) {
-                status.className = "mb-4 p-3 rounded-xl text-xs font-semibold bg-rose-100 text-rose-800 dark:bg-rose-950/40 dark:text-rose-300";
+                status.className = "mb-4 p-3 rounded-xl text-xs font-semibold bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 block";
                 status.innerText = "Invalid JSON syntax: " + e.message;
-                status.classList.remove('hidden');
             }
         }
 
@@ -547,86 +454,77 @@ console.log("DevMetrics Suite ready!");
             try {
                 const parsed = JSON.parse(input.value);
                 input.value = JSON.stringify(parsed);
-                status.className = "mb-4 p-3 rounded-xl text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300";
-                status.innerText = "JSON minified successfully.";
-                status.classList.remove('hidden');
+                status.className = "mb-4 p-3 rounded-xl text-xs font-semibold bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 block";
+                status.innerText = "JSON minified successfully!";
             } catch (e) {
-                status.className = "mb-4 p-3 rounded-xl text-xs font-semibold bg-rose-100 text-rose-800 dark:bg-rose-950/40 dark:text-rose-300";
+                status.className = "mb-4 p-3 rounded-xl text-xs font-semibold bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 block";
                 status.innerText = "Invalid JSON syntax: " + e.message;
-                status.classList.remove('hidden');
             }
         }
 
         function testRegex() {
-            const patternStr = document.getElementById('regex-pattern').value;
-            const flagsStr = document.getElementById('regex-flags').value;
-            const textStr = document.getElementById('regex-text').value;
+            const patternVal = document.getElementById('regex-pattern').value;
+            const flagsVal = document.getElementById('regex-flags').value;
+            const textVal = document.getElementById('regex-text').value;
             const resultsDiv = document.getElementById('regex-results');
 
-            if (!patternStr || !textStr) {
-                resultsDiv.innerHTML = '<span class="text-gray-400">Enter a pattern and test text string...</span>';
+            if (!patternVal || !textVal) {
+                resultsDiv.innerText = 'Match results will display here...';
                 return;
             }
 
             try {
-                const regex = new RegExp(patternStr, flagsStr);
-                const matches = [...textStr.matchAll(regex)];
-                if (matches.length === 0) {
-                    resultsDiv.innerHTML = '<span class="text-rose-500 font-semibold">No matches found.</span>';
+                const regex = new RegExp(patternVal, flagsVal);
+                const matches = textVal.match(regex);
+                if (matches) {
+                    resultsDiv.innerHTML = `<span class="text-emerald-500 font-bold">Found ${matches.length} Match(es):</span><br>` + matches.map(m => `<span class="inline-block bg-dev-100 dark:bg-dev-900 text-dev-800 dark:text-dev-200 px-2 py-0.5 rounded m-1">${m}</span>`).join(' ');
                 } else {
-                    let outHtml = `<div class="mb-2 text-emerald-500 font-semibold font-sans">Found ${matches.length} match(es):</div>`;
-                    matches.forEach((m, idx) => {
-                        outHtml += `<div class="p-1.5 mb-1 bg-white dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-700">Match #${idx + 1}: <span class="text-dev-600 dark:text-dev-400 font-bold">${m[0]}</span> (Index: ${m.index})</div>`;
-                    });
-                    resultsDiv.innerHTML = outHtml;
+                    resultsDiv.innerHTML = '<span class="text-rose-400 font-semibold">No matches found for pattern.</span>';
                 }
             } catch (e) {
-                resultsDiv.innerHTML = `<span class="text-rose-500">Regex error: ${e.message}</span>`;
+                resultsDiv.innerHTML = `<span class="text-rose-500 font-semibold">Regex Syntax Error: ${e.message}</span>`;
             }
         }
 
         function formatSQL() {
             const input = document.getElementById('sql-input');
-            let val = input.value;
-            const keywords = ["SELECT", "FROM", "WHERE", "JOIN", "ON", "AND", "OR", "ORDER BY", "GROUP BY", "HAVING", "LIMIT", "INSERT INTO", "UPDATE", "DELETE", "SET", "VALUES", "AS", "INNER JOIN", "LEFT JOIN", "RIGHT JOIN"];
-            
+            let text = input.value;
+            const keywords = ['SELECT', 'FROM', 'WHERE', 'JOIN', 'LEFT JOIN', 'RIGHT JOIN', 'INNER JOIN', 'ON', 'GROUP BY', 'ORDER BY', 'LIMIT', 'INSERT INTO', 'UPDATE', 'DELETE', 'SET', 'HAVING', 'AND', 'OR'];
             keywords.forEach(kw => {
-                const reg = new RegExp("\\b" + kw + "\\b", "gi");
-                val = val.replace(reg, kw);
+                const reg = new RegExp('\\b' + kw + '\\b', 'gi');
+                text = text.replace(reg, kw);
             });
-            input.value = val;
+            input.value = text;
         }
 
         function renderMarkdown() {
             const input = document.getElementById('markdown-input').value;
             const preview = document.getElementById('markdown-preview');
-            if (typeof marked !== 'undefined') {
+            if (window.marked) {
                 preview.innerHTML = marked.parse(input);
             }
         }
 
         function updateCssLayout() {
-            const container = document.getElementById('css-preview-container');
             const justify = document.getElementById('css-justify').value;
             const align = document.getElementById('css-align').value;
             const gap = document.getElementById('css-gap').value;
-
+            const container = document.getElementById('css-preview-container');
             container.style.justifyContent = justify;
             container.style.alignItems = align;
             container.style.gap = gap;
         }
 
-        function copyToClipboard(elementId) {
-            const el = document.getElementById(elementId);
+        function copyToClipboard(id) {
+            const el = document.getElementById(id);
             el.select();
             navigator.clipboard.writeText(el.value);
+            alert('Copied to clipboard!');
         }
 
-        // Initialize preview on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            renderMarkdown();
-            updateCssLayout();
-        });
+        // Initialize Markdown Preview
+        renderMarkdown();
+        updateCssLayout();
     </script>
 </body>
 </html>
